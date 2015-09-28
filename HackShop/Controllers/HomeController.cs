@@ -16,15 +16,20 @@ namespace HackShop.Controllers
 
         public ActionResult Shop()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Buy some vodka.";
 
-            return View();
+            //return View(new Purchase(){VodkaPrice = 70.0});
+            return View(new Purchase() { VodkaPrice = 70.0 });
         }
 
 
         [HttpPost]
         public ActionResult Shop(Purchase purchase)
         {
+            if (ModelState.IsValid == false)
+            {
+                return View(purchase);
+            }
             return Json(string.Format("You bought {0} vodkas for {1} ", purchase.VodkaCount, purchase.VodkaCount * purchase.VodkaPrice));
         }
 

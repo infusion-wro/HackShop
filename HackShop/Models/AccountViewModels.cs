@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace HackShop.Models
 {
@@ -11,8 +13,15 @@ namespace HackShop.Models
 
     public class Purchase
     {
-        public float VodkaCount { get; set; }
-        public float VodkaPrice { get; set; }
+        [Required]
+        [Range(1, 1000, ErrorMessage = "Please enter a value bigger than {1}")]
+        [Display(Name = "Vodka Count")]
+        public double VodkaCount { get; set; }
+
+        [Required]
+        [Range(1, double.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
+        [Display(Name = "Vodka Price")]
+        public double VodkaPrice { get; set; }
         //public float VodkaCount { get; set; }
     }
 
