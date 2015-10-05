@@ -9,20 +9,13 @@
 
 @using (Html.BeginForm()) 
 {
-    @Html.AntiForgeryToken()
+    @* @Html.AntiForgeryToken() *@
     
     <div class="form-horizontal">
         <h4>CommentModel</h4>
         <hr />
         @Html.ValidationSummary(true)
 
-@*        <div class="form-group">
-            @Html.LabelFor(model => model.Author, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Author)
-                @Html.ValidationMessageFor(model => model.Author)
-            </div>
-        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
