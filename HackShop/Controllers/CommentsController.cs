@@ -29,14 +29,14 @@ namespace HackShop.Controllers
             return View(_comments);
         }
 
-        //
+        [ValidateAntiForgeryToken]
         // GET: /Comments/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        //
+        [ValidateAntiForgeryToken]
         // POST: /Comments/Create
         [HttpPost]
         public ActionResult Create(CommentModel model)
